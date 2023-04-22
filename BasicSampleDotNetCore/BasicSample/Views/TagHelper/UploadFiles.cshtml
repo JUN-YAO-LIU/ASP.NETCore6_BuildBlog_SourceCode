@@ -1,0 +1,12 @@
+﻿@model UploadData
+
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+            <j3>上傳檔案</j3>
+        <dd>
+            <input asp-for="@Model.File" type="file">
+        </dd>
+    </dl>
+    <input asp-controller="TagHelper" asp-action="UploadFiles"  type="submit" />
+</form>

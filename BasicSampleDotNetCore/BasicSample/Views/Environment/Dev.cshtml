@@ -1,0 +1,17 @@
+﻿@inject IWebHostEnvironment _env
+
+<h2>現在環境：@_env.EnvironmentName</h2>
+<environment include="Development">
+    <div>如果是測試環境就會看到內容</div>
+</environment>
+<environment exclude="Development">
+    <div>只要不是測試環境，就能看到此內容</div>
+</environment>
+
+
+
+@if(ViewBag.EnvName != null)
+{
+    <div style="margin-top:20px;">後端讀取狀態，傳向前端顯示</div>
+    <div>@ViewBag.EnvName</div>
+}

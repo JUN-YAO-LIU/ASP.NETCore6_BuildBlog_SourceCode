@@ -1,0 +1,42 @@
+﻿@using EFBlog.ViewModels.ArticleService
+@model UpdateArticleViewModel
+
+
+@section Styles {
+<style>
+    .ck-editor__editable {
+        min-height: 500px;
+    }
+</style>
+}
+
+<form asp-controller="Article" asp-action="CreateArticle" method="post">
+
+        標題：
+        <input asp-for="Title" class="form-control" />
+
+        是否停用：
+        <input asp-for="IsDelete" type="checkbox" class="form-check-input" />
+
+        <textarea asp-for="ArticleContent" class="form-control" id="editor" style="width:700px;margin-right:auto;margin-left:auto;">@Model.ArticleContent</textarea>
+
+    <button type="submit">Send</button>
+</form>
+
+    @section Scripts {
+
+<script src="~/ckeditor7/build/ckeditor.js"></script>
+<script>
+    // ckEdit 5
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            ckfinder: {
+                uploadUrl: '/Article/Uploads'
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+}
+

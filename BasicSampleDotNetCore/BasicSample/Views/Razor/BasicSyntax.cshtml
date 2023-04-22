@@ -1,0 +1,188 @@
+﻿@{
+    // 1.用大括號方式加上@字元，撰寫C#語法
+    string name = "Jack";
+}
+
+<div>
+    <h1>Hi~</h1>
+    <!--2.標示出C#語法定義的變數值，印在html標前裡面-->
+    <div>@name</div>
+</div>
+
+<hr />
+
+@{
+    // 3.程式碼會區分大小寫
+    string Title = "Title";
+    string title = "title";
+}
+
+<div>
+    <h1>程式碼會區分大小寫</h1>
+    <div>@Title</div>
+    <div>@title</div>
+</div>
+
+
+@{
+    // 4.註解
+    // string Title = "Title";
+    @*string title = "title";*@
+}
+
+<hr />
+
+<div>使用@@符號呈現在畫面上</div>
+
+<hr />
+
+<h1>變數</h1>
+
+@{
+    var str = "Welcome!";
+
+    var theInt = 3;
+
+    var today = DateTime.Today;
+
+    // 也可以明確定義類型
+    string strName = "Joe";
+    int count = 5;
+    DateTime tomorrow = DateTime.Now.AddDays(1);
+}
+
+<hr />
+
+<h1>運算子</h1>
+@(5 + 13)
+@{
+    var netWorth = 150000;
+}
+@{
+    var newTotal = netWorth * 2;
+}
+@(newTotal / 2)
+
+<hr />
+<h1>運算子</h1>
+
+@{
+
+
+    // 傳遞值
+    var age = 17;
+
+    // == 進行比較，如果等於就會做下面的事
+    var myNum = 15;
+    if (myNum == 15)
+    {
+    }
+
+    // != 進行比較，如果不等於就會做下面的事
+    var theNum = 13;
+    if (theNum != 15)
+    {
+    }
+
+    // 大於小於等於的比較
+    if (1 < 5)
+    {
+    }
+    var currentCount = 10;
+    if (currentCount >= 10)
+    {
+    }
+
+    // 數字變數加一
+    int theCount = 0;
+    theCount += 1;
+
+    // 布林變數，加上驚嘆號可以轉換boolean的值
+    bool taskCompleted = false;
+    if (!taskCompleted)
+    {
+    }
+
+    // && 當兩個條件達成，才會做下面的事
+    bool myTaskCompleted = false;
+    int totalCount = 0;
+    if (!myTaskCompleted && totalCount < 10)
+    {
+    }
+
+    // || 只要一個條件達成，就會做下面的事
+    if (!myTaskCompleted && totalCount < 10)
+    {
+    }
+}
+
+
+<hr />
+<h1>條件式</h1>
+@{
+    var testNum = 5;
+    if (testNum == 0)
+    {
+        <p>數字為0</p>
+    }
+    else if (testNum > 0 && testNum <= 5)
+    {
+        <p>數字大於零小於等於5</p>
+    }
+    else
+    {
+        <p>@testNum</p>
+    }
+}
+
+@{
+    var weak = "Wednesday";
+    int day;
+
+    switch (weak)
+    {
+        case "Monday":
+            day = 1;
+            break;
+        case "Tuesday":
+            day = 2;
+            break;
+        case "Wednesday":
+            day = 3;
+            break;
+        default:
+            day = 0;
+            break;
+    }
+
+    <p>@weak : 禮拜 @day</p>
+}
+
+<hr />
+<h1>迴圈</h1>
+
+<div>for</div>
+@for (var i = 10; i < 21; i++)
+{
+    <p>Line #: @i</p>
+}
+
+<div>foreach</div>
+@{
+    string[] strArr = { "A123", "B1234", "C123" };
+
+    foreach (var i in strArr)
+    {
+        <p>i</p>
+    }
+}
+
+<div>while</div>
+@{
+    var countNum = 0;
+    while (countNum < 50)
+    {
+        countNum += 1;
+        <p>Line #@countNum: </p>
+    }
+}

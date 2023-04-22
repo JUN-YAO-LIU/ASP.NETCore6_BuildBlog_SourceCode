@@ -1,0 +1,29 @@
+﻿@model BasicSample.Models.Car
+<h3>
+    Parents
+</h3>
+<hr/>
+<h3>
+    Taghelper用法
+</h3>
+<hr />
+<partial name="_TestPartial" />
+
+<hr />
+<h3>
+    非同步用法
+</h3>
+<hr />
+@await Html.PartialAsync("_TestPartial")
+<hr />
+<h3>
+    同步用法
+</h3>
+<hr />
+@Html.Partial("_TestPartial")
+<hr />
+<h3>
+    同步用法
+</h3>
+<hr />
+@await Html.PartialAsync("_TestPartialGetModel", Model)

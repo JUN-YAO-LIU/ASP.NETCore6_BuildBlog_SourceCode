@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<owner>
+		<NameXml>
+			Jim Jim
+		</NameXml>
+		<AgeXml>998</AgeXml>
+	</owner>
+	<house>
+		<addressXml>台北市</addressXml>
+		<portXml>144</portXml>
+	</house>
+</configuration>

@@ -1,0 +1,13 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration _config
+
+
+<h3>Json Configuration</h3>
+
+<div>
+    @_config["JsonConfig:name"]
+</div>
+
+<div>
+    @_config["JsonConfig:Age"]
+</div>

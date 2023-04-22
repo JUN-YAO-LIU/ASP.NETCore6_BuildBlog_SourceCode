@@ -1,0 +1,169 @@
+﻿@model TestDataTypeHtmlHelper
+
+@using (Html.BeginForm("TestDataTypeHtmlHelper", "Razor", FormMethod.Post))
+{
+    <div style="margin-bottom:20px;">
+        <div>String</div>
+        @Html.EditorFor(m => m.TestString)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>Currency</div>
+        @Html.EditorFor(m => m.TestCurrency)
+        @Html.ValidationMessageFor(m => m.TestCurrency,null,new { style="color:red;" })
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>Password</div>
+        @Html.EditorFor(m => m.TestPassword)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>Email</div>
+        @Html.EditorFor(m => m.TestEmail)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>DateTime</div>
+        @Html.EditorFor(m => m.TestDateTime)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>Date</div>
+        @Html.EditorFor(m => m.TestDate)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>MultilineText</div>
+        @Html.EditorFor(m => m.TestMultilineText)
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div>Url</div>
+        @Html.EditorFor(m => m.TestUrl)
+    </div>
+
+
+
+    <button type="submit" style="margin-top:50px">確認</button>
+}
+
+
+
+@*
+<div style="margin-bottom:20px;">
+    <div>String</div>
+    @Html.EditorFor(m => m.TestString)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestString field is required." 
+        id="TestString" 
+        name="TestString" 
+        type="text" 
+        value="">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>Currency</div>
+    @Html.EditorFor(m => m.TestCurrency)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestCurrency field is required." 
+        id="TestCurrency" 
+        name="TestCurrency" 
+        type="number" value="">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>Password</div>
+    @Html.EditorFor(m => m.TestPassword)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line password" 
+        data-val="true" 
+        data-val-required="The TestPassword field is required." 
+        id="TestPassword" 
+        name="TestPassword" 
+        type="password">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>Email</div>
+    @Html.EditorFor(m => m.TestEmail)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestEmail field is required." 
+        id="TestEmail" 
+        name="TestEmail" 
+        type="email" 
+        value="">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>DateTime</div>
+    @Html.EditorFor(m => m.TestDateTime)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestDateTime field is required." 
+        id="TestDateTime" 
+        name="TestDateTime" 
+        type="datetime-local" 
+        value="">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>Date</div>
+    @Html.EditorFor(m => m.TestDate)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestDate field is required." 
+        id="TestDate" 
+        name="TestDate" 
+        type="date" 
+        value="">
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>MultilineText</div>
+    @Html.EditorFor(m => m.TestMultilineText)
+
+    <!--轉譯結果-->
+    <textarea 
+        class="text-box multi-line" 
+        data-val="true" 
+        data-val-required="The TestMultilineText field is required." 
+        id="TestMultilineText"
+        name="TestMultilineText"></textarea>
+</div>
+
+<div style="margin-bottom:20px;">
+    <div>Url</div>
+    @Html.EditorFor(m => m.TestUrl)
+
+    <!--轉譯結果-->
+    <input 
+        class="text-box single-line" 
+        data-val="true" 
+        data-val-required="The TestUrl field is required." 
+        id="TestUrl" 
+        name="TestUrl" 
+        type="url" 
+        value="">
+</div>
+*@

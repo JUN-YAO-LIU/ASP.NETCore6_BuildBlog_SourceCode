@@ -1,0 +1,21 @@
+﻿<h5>Html encode</h5>
+<div>@Html.Raw(ViewBag.html)</div>
+<hr/>
+<h5>Html 沒有encode</h5>
+<div>@Html.Raw(ViewBag.dontEncodeHtml)</div>
+<div>@ViewBag.dontEncodeHtml</div>
+<hr/>
+
+<h5>Js encode</h5>
+<div>@Html.Raw(ViewBag.js)</div>
+<hr />
+
+<h5>Url encode</h5>
+<div>@Html.Raw(ViewBag.url)</div>
+<hr/>
+
+<form asp-action="XSS" method="post">
+    輸入內容：
+    <input type="text"  name="content"/>
+    <button type="submit">輸入</button>
+</form>

@@ -1,0 +1,84 @@
+﻿@using EFBlog.ViewModels.ArticleService
+@model IEnumerable<ArticleViewModel>;
+@inject IHttpContextAccessor _ha;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-2">
+    <h1 class="display-4">Welcome @_ha.HttpContext.User.Identity.Name</h1>
+</div>
+<hr/>
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="text-center mt-5">
+        @foreach (var item in Model)
+        {
+            <h3 class="display-4">
+                <a href="~/Article/@item.Id">@item.Title</a>
+            </h3>
+        }
+
+        <div id="articleIndex"></div>
+    </div>
+}
+
+
+
+<div class="text-center">
+    @Html.AntiForgeryToken()
+    <button id="getArticles" type="button" style="font-weight: bold;
+                                                        color: black;
+                                                        border-radius:15px;
+                                                        box-shadow:0px 0px 2px black;
+                                                        border: none;
+                                                        padding-left:30px;padding-right:30px;padding-bottom:10px;padding-top:10px;
+                                                        background-color:white;">
+        更多文章
+    </button>
+</div>
+
+<div id="nomorearticle" class="text-center mb-3" style="font-weight: bold; color: #01455e;display:none;">
+    沒有更多文章了~
+</div>
+
+
+@section Scripts {
+    <script>
+        $("#getArticles").click(function () {
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            var moreArticle = "";
+            $.ajax({
+                type: 'Post',
+                url: "/Article/GetMoreArticle",
+                //dataType: "json",
+                data: {
+                    __RequestVerificationToken: token,
+                },
+                success: function (data) {
+                    console.log(data)
+
+                    if (data.length > 0) {
+                        for (let i = 0; i < data.length; i++) {
+                            moreArticle += `
+                                 <h3 class="display-4">
+                                      <a href="~/Article/${data[i].id}">${data[i].title}</a>
+                                 </h3>
+                            `
+                        }
+
+                        $('#articleIndex').append(`${moreArticle}`);
+
+                    } else {
+                        $("#getArticles").hide();
+                        $("#nomorearticle").show();
+                    }
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,10 @@
+﻿@using BasicSample.Options
+@using Microsoft.Extensions.Options
+@inject IOptions<TestJsonOption> opt
+@{
+    var _opt = opt.Value;
+}
+
+<h3>Option 讀取設定檔</h3>
+<div>@_opt.name</div>
+<div>@_opt.age</div>

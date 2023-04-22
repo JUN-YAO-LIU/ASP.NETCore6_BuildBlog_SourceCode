@@ -1,0 +1,102 @@
+﻿@model TestBasicTaghelper
+
+<!--超連結-->
+<!--asp-controller-->
+<div>
+    <a asp-controller="Home">回到首頁</a>
+</div>
+
+
+<!--asp-action-->
+<div>
+    <a asp-controller="TagHelper"
+       asp-action="UploadFiles">
+        跳到下載檔案頁面
+    </a>
+</div>
+
+
+<!--asp-route-{value}-->
+<div>
+    <a asp-controller="TagHelper"
+       asp-action="TestRouteId"
+       asp-route-id="1">
+        透過asp-route-id回傳參數
+    </a>
+</div>
+
+
+@{
+    var parms = new Dictionary<string, string>
+            {
+                { "name", "Jim" },
+                { "age", "18" }
+            };
+}
+<div>
+<a asp-controller="TagHelper"
+   asp-action="TestRoute"
+   asp-all-route-data="parms">
+    透過asp-route-data回傳參數
+</a>
+</div>
+
+
+<!--Environment-->
+<div>
+    <environment include="Development">
+        <strong>Tag Helper的環境屬性</strong>
+    </environment>
+</div>
+
+<!--Label-->
+<div>
+    <h3>Label</h3>
+    <label asp-for="@Model.Car"></label>
+    <br/>
+</div>
+
+
+<div>
+    <form asp-controller="TagHelper" asp-action="Index" method="post">
+        輸入：
+        <input asp-for="@Model.Car" /> <br />
+        <span asp-validation-for="@Model.Car"></span>
+        <button type="submit">確定</button>
+    </form>
+</div>
+
+
+<div>
+    <!--表單-->
+    <form asp-controller="TagHelper" asp-action="Index" method="post">
+    </form>
+</div>
+
+
+<!--input-->
+<div>
+     <label asp-for="@Model.Email"></label>
+     <input asp-for="@Model.Email" /> <br />
+     <label asp-for="@Model.Password"></label>
+     <input asp-for="@Model.Password" /> <br />
+</div>
+
+<!--Select-->
+
+@{
+    var carSelect = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "A", Text = "Car1" },
+            new SelectListItem { Value = "B", Text = "Car2" },
+            new SelectListItem { Value = "C", Text = "Car3"  },
+        };
+}
+
+<div>
+    <form asp-controller="TagHelper" asp-action="Index" method="post">
+        <select asp-for="@Model.Car" asp-items="carSelect"></select>
+        <br /><button type="submit">Register</button>
+    </form>
+</div>
+

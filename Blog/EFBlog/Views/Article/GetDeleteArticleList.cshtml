@@ -1,0 +1,33 @@
+﻿@using EFBlog.ViewModels.ArticleService
+@model IEnumerable<UpdateArticleViewModel>;
+
+@{
+    ViewData["Title"] = "Delete Article";
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="text-center mt-5">
+        <ul class="list-group">
+
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-center">
+                        <h3 class="display-4 p-2">
+                            @item.Title
+                        </h3>
+                        <div>
+                            <h3 class="display-4 p-2">
+                                <form method="post">
+                                    <button type="submit" asp-action="DeleteArticle" asp-controller="Article" asp-route-id="@item.Id">刪除</button>
+                                </form>
+                            </h3>
+                        </div>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+}

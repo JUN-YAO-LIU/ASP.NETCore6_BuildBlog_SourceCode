@@ -1,0 +1,220 @@
+﻿@model BasicSample.Models.TestHtmlHelper
+
+<div>BeginForm</div>
+@using (Html.BeginForm("TestHtmlHelper", "Razor", FormMethod.Post))
+{
+
+}
+
+
+<!--轉譯結果-->
+<form action="/Razor/TestHtmlHelper" method="post">
+    <input 
+    name="__RequestVerificationToken" 
+    type="hidden" 
+    value="CfDJ8IfUYPI7AAtCjhTk53MEiI6h3FbRZ2L6YhvT5xL9rGdp7TCDl6MWuSt5h7DA83pXE8ewSBZO3AObVMBYRrpl1ZkubaGgnA2RzjLav-6DdSlyCfbSj-6azqXyEGf0OFxAbs_deLGHPEHXJx87yJxClMM">
+</form>
+
+<div>DisplayName</div>
+
+@Html.DisplayName("TestDisplayName")
+
+@Html.DisplayNameFor(x => x.TestDisplayName)
+
+<!--轉譯結果-->
+
+TestDisplayName
+TestDisplayName
+
+<br /><hr/>
+
+<div>Label</div>
+
+@Html.Label("TestLabel")
+@Html.LabelFor(x => x.TestLabel)
+
+<!--轉譯結果-->
+<label for="TestLabel">TestLabel</label>
+
+<br /><hr/>
+
+<div>TextBox</div>
+
+@Html.TextBox("TestBox")
+
+@Html.TextBoxFor(x => x.TestBox)
+
+<!--轉譯結果-->
+
+<input data-val="true" data-val-required="The TestBox field is required." id="TestBox" name="TestBox" type="text" value="">
+
+<input id="TestBox" name="TestBox" type="text" value="">
+
+<br /><hr/>
+
+<div>Password</div>
+
+@Html.Password("TestPassword")
+
+@Html.PasswordFor(x => x.TestPassword)
+
+<!--轉譯結果-->
+
+<input data-val="true" 
+       data-val-required="The TestPassword field is required." 
+       id="TestPassword" 
+       name="TestPassword" 
+       type="password">
+
+<input id="TestPassword" name="TestPassword" type="password">
+
+<br /><hr/>
+
+<div>CheckBox</div>
+
+@Html.CheckBox("TestCheckBox",true)
+
+@Html.CheckBoxFor(x => x.TestCheckBox)
+
+<!--轉譯結果-->
+<input data-val="true" 
+       data-val-required="The TestCheckBox field is required." 
+       id="TestCheckBox"
+       name="TestCheckBox" 
+       type="checkbox" 
+       value="true">
+
+<input name="TestCheckBox" type="hidden" value="false">
+
+<br /><hr/>
+
+<div>RadioButton</div>
+
+@Html.RadioButton("RadioButton","X")
+@Html.RadioButton("RadioButton","Y")
+
+@Html.RadioButtonFor(m => m.TestRadioButton,"X")
+@Html.RadioButtonFor(m => m.TestRadioButton,"Y")
+
+<!--轉譯結果-->
+
+<input id="RadioButton" name="RadioButton" type="radio" value="X">
+<input id="RadioButton" name="RadioButton" type="radio" value="Y">
+
+<input 
+    data-val="true" 
+    data-val-required="The TestRadioButton field is required." 
+    id="TestRadioButton" 
+    name="TestRadioButton" 
+    type="radio" 
+    value="X">
+
+<input 
+    data-val="true" 
+    data-val-required="The TestRadioButton field is required." 
+    id="TestRadioButton" 
+    name="TestRadioButton" 
+    type="radio" 
+    value="Y">
+
+
+<br /><hr/>
+
+<div>DropDownList</div>
+
+@Html.DropDownList("TestDropDownList",new List<SelectListItem>()
+{
+    new SelectListItem{ Text = "預設",Value =""},
+    new SelectListItem{ Text = "測試1",Value ="value1"},
+    new SelectListItem{ Text = "測試2",Value ="value2"}
+})
+
+@Html.DropDownListFor(m => m.TestDropDownList,new List<SelectListItem>()
+{
+    new SelectListItem{ Text = "預設",Value =""},
+    new SelectListItem{ Text = "測試1",Value ="value1"},
+    new SelectListItem{ Text = "測試2",Value ="value2"}
+})
+
+<!--轉譯結果-->
+<select data-val="true" 
+data-val-required="The TestDropDownList field is required." 
+id="TestDropDownList" 
+name="TestDropDownList">
+<option value="">預設</option>
+<option value="value1">測試1</option>
+<option value="value2">測試2</option>
+</select>
+
+<select id="TestDropDownList" name="TestDropDownList">
+    <option value="">預設</option>
+    <option value="value1">測試1</option>
+    <option value="value2">測試2</option>
+</select>
+
+<br /><hr/>
+
+<div>TextArea</div>
+
+@Html.TextArea("TestTextArea")
+
+@Html.TextAreaFor(m => m.TestTextArea)
+
+<!--轉譯結果-->
+
+<textarea 
+data-val="true" 
+data-val-required="The TestTextArea field is required." 
+id="TestTextArea" 
+name="TestTextArea"></textarea>
+
+
+<textarea id="TestTextArea" name="TestTextArea"></textarea>
+
+<br /><hr/>
+
+<div>Editor</div>
+
+@Html.Editor("TestEditor")
+
+@Html.EditorFor(m => m.TestEditor)
+
+<!--轉譯結果-->
+
+<input class="text-box single-line" 
+data-val="true" 
+data-val-required="The TestEditor field is required." 
+id="TestEditor" 
+name="TestEditor" 
+type="text" value="">
+
+<input class="text-box single-line" id="TestEditor" name="TestEditor" type="text" value="">
+
+<br /><hr/>
+
+<div>Hidden</div>
+
+@Html.Hidden("TestHidden")
+
+
+@Html.HiddenFor(m => m.TestHidden)
+
+<!--轉譯結果-->
+
+<input 
+    data-val="true" 
+    data-val-required="The TestHidden field is required." 
+    id="TestHidden" 
+    name="TestHidden" 
+    type="hidden" 
+    value="">
+
+<input id="TestHidden" name="TestHidden" type="hidden" value="">
+
+
+@using (Html.BeginForm("TestHtmlHelper", "Razor", FormMethod.Post))
+{
+    @Html.ValidationMessage("TestValidationMessage",new { style="color:red;" })
+    @Html.ValidationMessageFor(x => x.TestValidationMessage)
+}
+

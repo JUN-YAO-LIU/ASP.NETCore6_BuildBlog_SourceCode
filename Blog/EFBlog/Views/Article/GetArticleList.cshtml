@@ -1,0 +1,27 @@
+﻿@using EFBlog.ViewModels.ArticleService
+@model IEnumerable<UpdateArticleViewModel>;
+
+@{
+    ViewData["Title"] = "Update Article";
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="text-center mt-5">
+        <ul class="list-group">
+
+            @foreach (var item in Model)
+            {
+
+                <li class="list-group-item">
+                    <h3 class="display-4">
+                        @item.Title
+                        <a type="button" href="~/UpdateArticle/@item.Id">修改</a>
+                    </h3>
+                </li>
+
+            }
+
+        </ul>
+    </div>
+}

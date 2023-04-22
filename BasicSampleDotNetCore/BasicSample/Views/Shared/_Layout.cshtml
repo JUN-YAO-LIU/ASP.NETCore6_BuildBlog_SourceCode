@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BasicSample</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BasicSample.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BasicSample</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="~/Log" Privacy">Log 測試</a>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="~/Localization" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Environment
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Environment/Prod">正式環境</a></li>
+                                <li><a class="dropdown-item" href="~/Environment/Dev">測試環境</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="~/Localization" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Settings
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Settings/GetINI">INI檔</a></li>
+                                <li><a class="dropdown-item" href="~/Settings/GetJson">Json檔</a></li>
+                                <li><a class="dropdown-item" href="~/Settings/GetXml">Xml檔</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="~/Localization" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Options
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Option/TestOption">Options 前端呈現</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Action 回傳測試
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_Ok">HttpStatus 200</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_BadRequest">HttpStatus 400</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_NotFound">HttpStatus 404</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_Unauthorized">HttpStatus 401</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_ReturnHttpStatusCode">HttpStatus 500</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_CustomerRequestStatus">自定義 HttpStatus 999</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_Redirect">跳轉到Google</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_RedirectToAction">RedirectToAction</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_RedirectToRoute">RedirectToRoute</a></li>
+                                <li><a class="dropdown-item" href="~/ActionResult/Test_File">下載檔案</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Views
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/View/TestViewInject">檢視 相依性注入</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Controller 相異性注入測試
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Inject/Test_Car_Inject">相異性注入客製化服務</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_log_Inject">相異性注入Log使用</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_Option_Inject">相異性注入Option讀取參數檔</a></li>
+                                <li><a class="dropdown-item" href="~/Inject/Test_Env_Inject">相異性注入讀取環境</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                TagHelper
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Razor/Razor">Razor</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/BasicSyntax">Razor 基本語法</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/FourMethodControllerSendValueToView">Controller傳值到View的方法</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/HtmlHelper">HtmlHelper</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/TestHtmlHelper">TestHtmlHelper</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/TestDataTypeHtmlHelper">DataType HtmlHelper</a></li>
+                                <li><a class="dropdown-item" href="~/Razor/TagHelper">TagHelper</a></li>
+                                <li><a class="dropdown-item" href="~/TagHelper/UploadFiles">檔案上傳</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                防駭技巧
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Security/Validation">FluentValidation 欄位輸入驗證</a></li>
+                                <li><a class="dropdown-item" href="~/Security/SQLInjection">SQL Injection</a></li>
+                                <li><a class="dropdown-item" href="~/Security/XSS">跨網站指令攻擊</a></li>
+                                <li><a class="dropdown-item" href="~/Security/CSRF">CSRF 跨網站請求偽造</a></li>
+                                <li><a class="dropdown-item" href="~/Security/Cors">CORS 跨來源資源分享</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="~/Localization" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                多語系
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="~/Localization?culture=zh">中文</a></li>
+                                <li><a class="dropdown-item" href="~/Localization?culture=en">英文</a></li>
+                                <li><a class="dropdown-item" href="~/Localization?culture=jp">日文</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - BasicSample - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

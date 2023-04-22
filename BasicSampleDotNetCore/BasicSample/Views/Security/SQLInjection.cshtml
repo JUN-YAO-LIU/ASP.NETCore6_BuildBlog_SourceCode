@@ -1,0 +1,16 @@
+﻿<form asp-action="SQLInjection" method="get">
+    <div style="display:flex;margin-bottom:20px;">
+        <div>
+            <input name="search" value="" />
+        </div>
+        <div style="margin-left:20px;">
+            <button type="submit">查詢</button>
+        </div>
+    </div>
+</form>
+
+
+<h5>查詢結果</h5>
+<div>
+  Name :  @ViewBag.Result
+</div>

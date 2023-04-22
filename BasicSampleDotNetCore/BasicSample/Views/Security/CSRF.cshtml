@@ -1,0 +1,7 @@
+﻿<form asp-action="CSRF" method="post">
+    @Html.AntiForgeryToken()
+
+    輸入名稱：
+   <input type="text" name="name" />
+   <button type="submit">送出</button>
+</form>

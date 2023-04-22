@@ -1,0 +1,18 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration _config
+
+
+<h3>INI Configuration</h3>
+
+<div>
+    @_config["owner:name"]
+
+    @_config["owner:Age"]
+</div>
+
+
+<div>
+    @_config["house:address"]
+
+    @_config["house:port"]
+</div>

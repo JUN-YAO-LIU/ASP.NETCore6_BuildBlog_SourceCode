@@ -1,0 +1,27 @@
+﻿@using BasicSample.Application
+@using BasicSample.Options
+@using Microsoft.Extensions.Options
+
+@inject IWebHostEnvironment _env
+@inject IOptions<TestJsonOption>  _setting
+@inject ICarService _car
+
+<div>
+    <h3>讀取當前環境</h3>
+    <div>@_env.EnvironmentName</div>
+    <hr/><br/>
+</div>
+
+<div>
+    <h3>讀取參數檔Option</h3>
+    <div>@_setting.Value.name</div>
+    <div>@_setting.Value.age</div>
+    <hr/><br/>
+</div>
+
+<div>
+    <h3>客製化CarService</h3>
+    <div>@_car.FillingUp()</div>
+    <hr/><br/>
+</div>
+

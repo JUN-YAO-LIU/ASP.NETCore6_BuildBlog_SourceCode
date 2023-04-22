@@ -1,0 +1,18 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration _config
+
+
+<h3>Xml Configuration</h3>
+
+<div>
+    @_config["owner:NameXml"]
+
+    @_config["owner:AgeXml"]
+</div>
+
+
+<div>
+    @_config["house:addressXml"]
+
+    @_config["house:portXml"]
+</div>

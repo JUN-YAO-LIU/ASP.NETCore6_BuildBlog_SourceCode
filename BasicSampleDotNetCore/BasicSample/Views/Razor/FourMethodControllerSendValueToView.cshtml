@@ -1,0 +1,33 @@
+﻿@model BasicSample.Models.TestTagHelper
+
+<h1>Model</h1>
+<div>
+    @Model.BirthDay
+</div>
+<div>
+    @Model.Amount
+</div>
+<div>
+    @Model.Email
+</div>
+
+<hr/>
+<h1>ViewData</h1>
+<div>@ViewData["Num"]</div>
+<div>@ViewData["ViewName"]</div>
+<div>@ViewData["ViewDate"]</div>
+
+<hr/>
+<h1>ViewBag</h1>
+<div>@ViewBag.Num</div>
+<div>@ViewBag.BagName</div>
+<div>@ViewBag.Bag日期</div>
+
+<hr/>
+<h1>TempData</h1>
+<div>@TempData["TempNum"]</div>
+<div>@TempData["TempName"]</div>
+<div>@TempData["TempDate"]</div>
+
+
+

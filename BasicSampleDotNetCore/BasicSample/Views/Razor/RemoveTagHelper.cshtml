@@ -1,0 +1,23 @@
+﻿@model BasicSample.Models.TestTagHelper
+@removeTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form asp-controller="" asp-action="" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <duv>
+        <label class="caption" asp-for="Email"></label>
+        <input asp-for="Email" disabled="@(Model?.Delete == null)" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </duv>
+
+    <label class="caption" asp-for="OrderName"></label>
+    <input asp-for="OrderName" />
+    <span asp-validation-for="OrderName" class="text-danger"></span>
+
+
+    <label class="caption" asp-for="Delete"></label>
+    <input asp-for="Delete" type="checkbox" />
+
+
+    <button type="submit">Send</button>
+</form>

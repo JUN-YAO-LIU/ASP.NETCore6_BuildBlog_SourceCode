@@ -1,0 +1,61 @@
+﻿@model BasicSample.Models.TestTagHelper
+@using (Html.BeginForm("HtmlHelper", "Razor", FormMethod.Post))
+{
+    @Html.ValidationSummary("", new { style="color:red;" })
+    
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderName, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderName)
+        <div>
+            @Html.ValidationMessageFor(x => x.OrderName, "", new { style="color:red;" })
+        </div>
+    </div>
+   
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Email, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Email)
+        <div>
+            @Html.ValidationMessageFor(x => x.Email, "", new { style="color:red;" })
+        </div>
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderUrl, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderUrl)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.BirthDay, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.BirthDay)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.OrderDate, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.OrderDate)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Amount, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Amount)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Store, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Store)
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Remark, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Remark)
+        <div>
+            @Html.ValidationMessageFor(x => x.Remark, "", new { style="color:red;" })
+        </div>
+    </div>
+
+    <div style="margin-bottom:15px;">
+        @Html.LabelFor(x => x.Delete, null, new { style="margin-right:10px;" })
+        @Html.EditorFor(x => x.Delete)
+    </div>
+    
+    <button type="submit">Send</button>
+}

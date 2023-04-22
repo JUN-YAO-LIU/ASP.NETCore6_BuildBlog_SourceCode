@@ -1,0 +1,9 @@
+﻿@inject IWebHostEnvironment _env
+
+<h2>現在環境：@_env.EnvironmentName</h2>
+<environment include="Production">
+    <div>如果是正式還就會看到內容</div>
+</environment>
+<environment exclude="Production">
+    <div>只要不是正式環境，就能看到此內容</div>
+</environment>

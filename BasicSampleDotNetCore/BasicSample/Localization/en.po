@@ -1,0 +1,8 @@
+﻿msgid "Hello world!"
+msgstr "Hello world !"
+
+msgid "building"
+msgstr "Taipei 101"
+
+msgid "Describe"
+msgstr "101 is the landmark in Taipei"
